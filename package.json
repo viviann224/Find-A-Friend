@@ -1,0 +1,31 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Compatibility based friend finder application that show cases full stack development. The application uses a score system to look at user's form to decide the best fit of a friend in the friends list. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "FriendFinder",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viviann224/FriendFinder.git"
+  },
+  "keywords": [
+    "FullStack",
+    "FriendFinder",
+    "API",
+    "express"
+  ],
+  "author": "Vivian Tuong Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viviann224/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/viviann224/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
+}
