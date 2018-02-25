@@ -1,0 +1,146 @@
+
+	/*added animated bg*/
+body 
+{
+	width: 100wh;
+	height: 90vh;
+	color: #fff;
+	background: linear-gradient(-45deg, #e47f64, #73b8c0, #efe35f, #5fce74);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient 
+{
+	0% {
+		background-position: 0% 50%
+		}
+	50% {
+		background-position: 100% 50%
+		}
+	100% {
+		background-position: 0% 50%
+		}
+}
+
+@-moz-keyframes Gradient 
+{
+	0% {
+		background-position: 0% 50%
+		}
+	50% {
+		background-position: 100% 50%
+		}
+	100% {
+		background-position: 0% 50%
+		}
+}
+
+@keyframes Gradient 
+{
+	0% {
+		background-position: 0% 50%
+		}
+	50% {
+		background-position: 100% 50%
+		}
+	100% {
+		background-position: 0% 50%
+		}
+}
+a, .Btn
+{ 
+   color:white; 
+   -webkit-transition:color 0.5s ease-in; 
+   -moz-transition:color 0.5s ease-in; 
+   -o-transition:color 0.5s ease-in; 
+   transition:color 0.5s ease-in;
+   text-decoration: none;
+} 
+
+a:hover
+{color:orange;
+text-decoration: none;}
+
+
+.Btn
+{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	text-align: center;
+	padding:4px;
+	border: 2px solid white; /*rounded border*/
+    border-radius: 5px;		/*thickness or rounded border*/
+	background-color: orange;
+	color:white;
+	width:100px;
+	opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    margin:5px;
+}
+.Btn:hover 
+{
+	opacity: .8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+    background-color: white;
+    border: 2px solid orange; /*rounded border*/
+    border-radius: 5px;		/*thickness or rounded border*/
+    color:orange; 
+}
+
+.container
+{
+	margin:0 auto;
+	padding:0px;
+}
+.jumbotron
+{
+	font-family: 'Merriweather', serif;
+	color:#5e6a68;
+	font-size: 24px;
+	padding:5px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+h1
+{
+	text-shadow: 0 0 3px #7e8584;
+}
+
+.jumboh2
+{
+	font-family: arial;
+	color:#4c5a58;
+	font-size: 18px;
+	margin:0px;
+	padding-bottom: 2px;
+	font-style: italic;
+}
+.glyphicon-plus, .glyphicon-user
+{
+	color:#39baa8;
+}
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: none;
+    color: black;
+    text-align: center;
+}
+.startBtn
+{
+	text-align:center;
+	width:150px;
+	margin: 0 auto;
+}
+.footerButton
+{
+	padding:0px;
+	margin:5px;
+	float:left;
+}
