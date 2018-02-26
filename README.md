@@ -43,7 +43,7 @@ If the user wants to search for a different recipe, there is a search box, follo
 - Adobe Photoshop CC 2015.5
 - Firebase
 - Google fonts
-- Glyphicons
+- Glyphiconsglyphicons-371-globe-af.png
 
 **VERSION**:
 This is the first version of Aller-Jeeves
