@@ -1,3 +1,4 @@
+//place holder 
 var friendArray = [
 	{
 		"name":"Ahmed",

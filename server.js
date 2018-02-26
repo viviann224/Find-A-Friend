@@ -21,6 +21,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static('app/public'));
+//needs middleware to double check paths will go through shorly
 
 
  /*
