@@ -1,26 +1,22 @@
-# FriendFinder
+# Find-A-Friend
 **GETTING STARTED**:
 The program should run automatically.
 
 If the program is not running automatically, please make sure you have all the prerequisites listed below.
 
 **STATEMENT OF PURPOSE**:
- compatibility-based "FriendFinder" application -- basically a dating app. This full-stack site will take in results from your users' surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with the best overall match.
- # Aller-Jeeves
-Aller-Jeeves is a food application created to help alleviate the stress felt by individuals and families with dietary and/or allergy restrictions. Whether it is to find something new and delicious or wanting to find recipes for everyone to enjoy together. Next time someone ask what can you eat, introduce them to Aller-Jeeves, where our recipes will meet your needs.
+Find-A-Friend application is a friend compatibility-based  application. Find-A-Friend is full-stack site which takes in the user's name, picture, a series of personality questions and displays a friend based on previous users on the application.
 
-Aller-Jeeves was created to showcases the use of APIs from Yummly and Neutrino by pulling AJAX requests to create Aller-Jeeves. Learning to use JavaScript Animation, Anime JS, and deploying from Firebase Database. Aller-Jeeves is a group effort to provide a polished UI and specific search options for the user.
-
-Aller-Jeeves contains recipe cards with the recipes, a picture of the dish, and a bookmarking options (when the user logs in) on the front of the card. When the user clicks on the recipe the card flips over to the back to display a list of ingredients and a button linked to the recipe.
+Find-A-Friend was created to showcases the use of server routing from express, and path npm and creating an API from body-parser via converting to JSON form and preforming call AJAX requests.  Find-A-Friend is the first web application to pull a polished user interface, and server side together, deloying from Heroku to provide a new friend suggestion for the user.
 
 **PREREQUISITES**:
 - Google Chrome Internet Browser
 - jQuery enabled on Google Chrome
-- JavaScript Animation
 - JavaScript enabled on Google Chrome
 - Access to Google Font packages
-- Access to Yummly and Neutrino API
-- Access to Firebase database
+- Node.js
+- Terminal / Bash / command line prompt
+- Capability to run files in package.json (body-parser, express, path)
 - CDN support on Bootstrap
 - Perfered viewing in English language :us:
 
@@ -46,19 +42,17 @@ If the user wants to search for a different recipe, there is a search box, follo
 - Glyphiconsglyphicons-371-globe-af.png
 
 **VERSION**:
-This is the first version of Aller-Jeeves
+This is the first version of FIND-A-FRIEND
 
 **LICENSE**:
 This project is licensed under GitHub.
 
 **AUTHOR**:
--Matthew Steward - Initial work
--PM Milam IV - Initial work
--Vivian Tuong Nguyen - Initial work
--Kyle Carter - Initial work
+- Vivian Tuong Nguyen - Initial work
+
 
 
 **ACKNOWLEDGMENTS**:
-All rights are reserved to Matthew Steward, Kyle Carter, PM Milam IV, Vivian Tuong Nguyen. Do not alter or manipulate content and images from the authors listed above.
+All rights are reserved to Vivian Tuong Nguyen. Do not alter or manipulate content and images from Vivian Tuong Nguyen.
 Copyright   :copyright: 2018
 

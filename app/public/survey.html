@@ -155,10 +155,121 @@
 	 <div class="submit">
     <button type="submit" class="Btn" id="submit" onclick="myFunction()"><i class="fa fa-check-circle" aria-hidden="true"></i>Submit</button>
      </div>
-<script>
-    function myFunction(){
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
+<script type="text/javascript">
+
+	function myFunction()
+	{
         $('#myModal').modal('show') 
     }
+  //do not put outside  of the body for the javascript
+
+    // In this code, jQuery is used to "download" the data from our server
+    // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
+    // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
+    //calling the ajax request
+    function runTableQuery() 
+    {
+
+      // Here we get the location of the root page.
+      // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+      var currentURL = window.location.origin;
+
+      // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+      $.ajax({ url: currentURL + "/api/data", method: "GET" })
+      .then(function(friendData) 
+      {
+
+        // Here we are logging the URL so we have access to it for troubleshooting
+        console.log("------------------------------------");
+        console.log("URL: " + currentURL + "/api/tables");
+        console.log("------------------------------------");
+
+        // Here we then log the NYTData to console, where it will show up as an object.
+        console.log(friendData);
+        console.log("------------------------------------");
+
+        //logic to find friend here
+
+/*
+        // Loop through and display each of the customers
+        for (var i = 0; i < friendData.length; i++) 
+        {
+
+          // Create the HTML Well (Section) and Add the table content for each reserved table
+          var tableSection = $("<div>");
+          tableSection.addClass("well");
+          tableSection.attr("id", "tableWell-" + i + 1);
+          $("#tableSection").append(tableSection);
+
+          var tableNumber = i + 1;
+
+
+          // Then display the remaining fields in the HTML (Section Name, Date, URL)
+          //loop to add a unique id then append the new block
+          $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + friendData[i].name + friendData[i].photo + friendData[i].scores+"</h2>");
+        } */
+      });
+    }
+    
+     // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+    $(".submit").on("click", function(event) {
+      event.preventDefault();
+
+      // Here we grab the form elements
+      //BUILD NEW JSON CALLED newReservation
+      var newFriend = {
+        friendName: $("#name").val().trim(),
+        friendPhoto: $("#photo").val().trim(),
+       
+       
+      };
+      //verify
+      console.log(newFriend);
+
+      // This line is the magic. It"s very similar to the standard ajax function we used.
+      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+      // depending on if a tables is available or not.
+
+      //send post request, will not refresh the page just call ajax request
+      $.post("/api/tables", newFriend,
+        function(data) {
+
+          // If a table is available... tell user they are booked.
+          if (data) {
+            alert("Yay! There is a new friend for somebody!");
+          }
+
+          // If a table is available... tell user they on the waiting list.
+          else {
+            alert("You need to add anoter friend sorry!");
+          }
+
+          // Clear the form when submitting
+          $("#name").val("");
+          $("#photo").val("");
+    
+
+        });
+
+    });
+
+    
+    //as soon as page loads then gets the javascript
+
+    // Run Queries!
+    // ==========================================
+    runTableQuery();
+    //runWaitListQuery();
+
+
 </script>
 
     <!-- Submit Button -->
@@ -188,8 +299,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <h3>NAME:</h3>
-        <br> IMAGE HERE!!
+        <h3>NAME:MARTINI</h3>
+        <br> 
+        <img src="http://i63.tinypic.com/orihsg.png">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
