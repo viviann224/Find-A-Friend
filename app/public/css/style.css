@@ -64,15 +64,30 @@ a, .Btn
 a:hover
 {color:orange;
 text-decoration: none;}
-
+h2
+{
+	font-family: 'Merriweather', serif;
+	font-size:30px;
+	color:#5e6a68;
+}
 h3
 {
-	font-size:14px;
+	font-family: 'Merriweather', serif;
+	margin-bottom:0px;
+	padding:3px;
+	padding-top: 5px;
+	margin-top:0px; 
+	font-size:15px;
+	color:black;
 }
 
 h4
 {
-	font-size: 11px;
+	font-family: arial;
+	margin-bottom:3px;
+	margin-top:0px ;
+	font-size: 14px;
+	color:gray;
 }
 
 
@@ -109,7 +124,7 @@ h4
 {
 	font-family: 'Merriweather', serif;
 	color:#5e6a68;
-	font-size: 24px;
+	font-size: 18px;
 	padding:5px;
 	margin: 0 auto;
 	margin-top: 10px;
@@ -119,6 +134,25 @@ h4
 h1
 {
 	text-shadow: 0 0 3px #7e8584;
+}
+hr
+{
+	margin:10px;
+	width:100%;
+}
+#surveyForm
+{
+	font-family: arial;
+	width:80%;
+	size:8px;
+
+}
+
+strong
+{
+	font-family: 'Merriweather', serif;
+	color:#eb8366;
+	
 }
 
 .jumboh2
@@ -145,6 +179,7 @@ h1
     color: black;
     text-align: center;
 }
+
 .startBtn
 {
 	text-align:center;
@@ -176,10 +211,24 @@ option
 	font-size: 12px;
 	width: 50%;
 }
-
-#submit
+.modal
 {
-	padding: 0px;
+	color:black;
+}
+#submit /*submit button*/
+{
+	padding: 2px;
+	margin-right: auto;
+	margin-left:auto;
+}
+#copyright
+{
+	margin:2px;
+	padding:5px;
+	padding-bottom:3px;
+	color:white;
+	text-align: center;
+	font-size: 16px;
 }
 .footerButton
 {
