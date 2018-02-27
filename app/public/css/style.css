@@ -65,6 +65,16 @@ a:hover
 {color:orange;
 text-decoration: none;}
 
+h3
+{
+	font-size:14px;
+}
+
+h4
+{
+	font-size: 11px;
+}
+
 
 .Btn
 {
@@ -103,6 +113,8 @@ text-decoration: none;}
 	padding:5px;
 	margin: 0 auto;
 	margin-top: 10px;
+	opacity: 0.9;
+    filter: alpha(opacity=90); /* For IE8 and earlier */
 }
 h1
 {
@@ -138,6 +150,36 @@ h1
 	text-align:center;
 	width:150px;
 	margin: 0 auto;
+}
+
+input
+{
+	font-family: arial;
+	font-size: 12px;
+	padding:2px;
+	margin:0px;
+	background-color: yellow;
+}
+.chosen-select, .form-control
+{
+	background-color: white;
+	margin:0px;
+	font-size: 12px;
+	width:50%;
+	font-family: arial;	
+	padding:4px;
+	color:black;
+
+}
+option
+{
+	font-size: 12px;
+	width: 50%;
+}
+
+#submit
+{
+	padding: 0px;
 }
 .footerButton
 {
