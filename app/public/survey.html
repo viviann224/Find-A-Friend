@@ -201,14 +201,14 @@
         // Here we then log the NYTData to console, where it will show up as an object.
         console.log("Total scores in Arr: "+scoreArray);
         console.log("------------------------------------");
-        var match=0;
+        var match= Math.floor(Math.random()*(2)+0);
         var isFound=false;
         for (var x=0;x<friendData.length&&!isFound;x++)
         {
-          if(scoreArray[x]==match)
+          if(scoreArray[x]==this.match)
           {
             
-            match=scoreArray[x];
+            this.match=parseInt(scoreArray[x]);
             isFound=true;
 
           }
@@ -217,14 +217,14 @@
         //if not found pick someone randomly!
         if(!isFound)
         {
-          match= scoreArray[Math.floor(Math.random()*(friendData.length)+0)];
-          console.log("check index: "+ match);
+          match=0;
+          console.log("check index: "+ this.match);
         }
-        console.log("check index: "+ match);
+        console.log("check index: "+ this.match);
         console.log("check index: "+ friendData);
          // If a table is available... tell user they are booked.
-         $("#displayName").text("NAME: "+ friendData[1].name);
-          $("#displayImg").attr("src", friendData[1].photo);
+         $("#displayName").text("NAME: "+ friendData[match].name);
+          $("#displayImg").attr("src", friendData[match].photo);
 
           //$('#userMatch').html(data.matchName);
           //$("#userMatchImage").attr("src", data.matchImage);
