@@ -21,16 +21,7 @@ Find-A-Friend was created to showcases the use of server routing from express, a
 - Perfered viewing in English language :us:
 
 **HOW TO USE**:
-Once pages loads, the user is able to search for recipes by the name of a specific recipe or recipes containing a certain ingredient. The user also has the ability to further narrow down the search by checking the optional checkboxes based on any allergy and/or dietary restrictions.
-
-The results are then displayed on cards with the name of the recipe, an image of the recipe dish, and a bookmark button option once the user logs in. Once the user clicks on the recipe card, the card will flip over to the back where a list of the ingredients are displayed with a button.
-
-If the user clicks the button on the back of the card, a new tab will open and take the user to the  original source of the recipe where a detailed set of cooking instructions are available to the user.
-
-If the user logs into Gmail, they will have the ability to save specific recipe cards by clicking on the fork and knife icon. Those cards are stored in their bookmarks and can be reviewed at another time by clicking on the bookmark button at the top of the page.
-In addition to the amazing recipes, in the top right of the page, there is a "Conversion Table"! This allows the user to further customize their cooking experience by modifying ingredient amounts, with respect to volume and mass, for precise measurements that meet their needs.
-
-If the user wants to search for a different recipe, there is a search box, followed by a dropdown menu for the dietary/allergy restrictions, and a submission button to initiate a new search. This will become the main page for the user's interaction for recipe requests after the first search request is complete.
+Once pages loads, the user is able to input a name and a user image url. The user will be asked a series of questions and will need to input 10 questions which has a score associated to each question. Once the user hits submit, the application will look into system to look for a potenital new friend.
 
 **BUILT WITH**:
 - Sublime Text
