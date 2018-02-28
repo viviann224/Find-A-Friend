@@ -92,7 +92,6 @@ h4
 	color:gray;
 }
 
-
 .Btn
 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -107,6 +106,7 @@ h4
     filter: alpha(opacity=60); /* For IE8 and earlier */
     margin:5px;
 }
+
 .Btn:hover 
 {
 	opacity: .8;
@@ -137,24 +137,24 @@ h1
 {
 	text-shadow: 0 0 3px #7e8584;
 }
+
 hr
 {
 	margin:10px;
 	width:100%;
 }
+
 #surveyForm
 {
 	font-family: arial;
 	width:80%;
 	size:8px;
-
 }
 
 strong
 {
 	font-family: 'Merriweather', serif;
 	color:#eb8366;
-	
 }
 
 .jumboh2
@@ -166,6 +166,7 @@ strong
 	padding-bottom: 2px;
 	font-style: italic;
 }
+
 .glyphicon-plus, .glyphicon-user
 {
 	color:#39baa8;
@@ -175,11 +176,11 @@ strong
 {
 	text-align: center;
 }
+
 #displayImg
 {
 	width:50%;
 }
-
 
 .footer {
     position: fixed;
@@ -206,6 +207,7 @@ input
 	margin:0px;
 	background-color: yellow;
 }
+
 .chosen-select, .form-control
 {
 	background-color: white;
@@ -215,23 +217,26 @@ input
 	font-family: arial;	
 	padding:4px;
 	color:black;
-
 }
+
 option
 {
 	font-size: 12px;
 	width: 50%;
 }
+
 .modal
 {
 	color:black;
 }
+
 #submit /*submit button*/
 {
 	padding: 2px;
 	margin-right: auto;
 	margin-left:auto;
 }
+
 #copyright
 {
 	margin:2px;
@@ -241,6 +246,7 @@ option
 	text-align: center;
 	font-size: 16px;
 }
+
 .footerButton
 {
 	padding:0px;
