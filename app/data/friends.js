@@ -2,7 +2,7 @@
 var friendArray = [
 	{
 		"name":"Ahmed",
-  		"photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  		"photo":"https://pbs.twimg.com/profile_images/948294484596375552/RyGNqDEM_400x400.jpg",
 		"scores":[
 		      5,
 		      1,
@@ -20,3 +20,4 @@ var friendArray = [
 ];
 
 module.exports = friendArray;
+

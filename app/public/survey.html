@@ -37,7 +37,7 @@
     <h3>Question 1</h3>
     <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
     <select class="chosen-select" id="q1">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -48,7 +48,7 @@
     <h3>Question 2</h3>
     <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
     <select class="chosen-select" id="q2">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -60,7 +60,7 @@
     <h3>Question 3</h3>
     <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
     <select class="chosen-select" id="q3">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -72,7 +72,7 @@
     <h3>Question 4</h3>
     <h4>You rarely do something just out of sheer curiosity.</h4>
     <select class="chosen-select" id="q4">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -84,7 +84,7 @@
     <h3>Question 5</h3>
     <h4>People can rarely upset you.</h4>
     <select class="chosen-select" id="q5">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -96,7 +96,7 @@
     <h3>Question 6</h3>
     <h4>It is often difficult for you to relate to other people’s feelings.</h4>
     <select class="chosen-select" id="q6">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -108,7 +108,7 @@
     <h3>Question 7</h3>
     <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
     <select class="chosen-select" id="q7">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -119,7 +119,7 @@
     <h3>Question 8</h3>
     <h4>You rarely get carried away by fantasies and ideas.</h4>
     <select class="chosen-select" id="q8">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -130,7 +130,7 @@
     <h3><Question 9</h3>
     <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
     <select class="chosen-select" id="q9">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -141,7 +141,7 @@
     <h3>Question 10</h3>
     <h4>You feel more energetic after spending time with a group of people.</h4>
     <select class="chosen-select" id="q10">
-      <option value=""></option>
+      <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -153,7 +153,7 @@
     <br>
 	<!-- Submit Button -->
 	 <div class="submit">
-    <button type="submit" class="Btn" id="submit" onclick="myFunction()"><i class="fa fa-check-circle" aria-hidden="true"></i>Submit</button>
+    <button type="submit" class="Btn" id="submit" ><i class="fa fa-check-circle" aria-hidden="true"></i>Submit</button>
      </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -170,7 +170,7 @@
     // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
     // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
     //calling the ajax request
-    function runTableQuery() 
+    function getMatch() 
     {
 
       // Here we get the location of the root page.
@@ -181,36 +181,60 @@
       $.ajax({ url: currentURL + "/api/data", method: "GET" })
       .then(function(friendData) 
       {
+       
 
         // Here we are logging the URL so we have access to it for troubleshooting
         console.log("------------------------------------");
         console.log("URL: " + currentURL + "/api/tables");
         console.log("------------------------------------");
-
-        // Here we then log the NYTData to console, where it will show up as an object.
-        console.log(friendData);
-        console.log("------------------------------------");
-
-        //logic to find friend here
-
-/*
-        // Loop through and display each of the customers
-        for (var i = 0; i < friendData.length; i++) 
+        var scoreArray=[];
+        var total=0;
+        for(var x=0; x< friendData.length;x++)
         {
+          for (var y=0; y<10;y++)
+          {
+            //console.log(friendData[x].scores[y].trim());
+            //console.log(typeof(friendData[x].scores[y].trim()));
+            total+=parseInt(friendData[x].scores[y]);
+          }
+          scoreArray.push(total);
+        }
+        // Here we then log the NYTData to console, where it will show up as an object.
+        console.log("Total scores in Arr: "+scoreArray);
+        console.log("------------------------------------");
+        var match=0;
+        var isFound=false;
+        for (var x=0;x<friendData.length&&!isFound;x++)
+        {
+          if(scoreArray[x]==match)
+          {
+            
+            match=scoreArray[x];
+            isFound=true;
 
-          // Create the HTML Well (Section) and Add the table content for each reserved table
-          var tableSection = $("<div>");
-          tableSection.addClass("well");
-          tableSection.attr("id", "tableWell-" + i + 1);
-          $("#tableSection").append(tableSection);
+          }
 
-          var tableNumber = i + 1;
+        }
+        //if not found pick someone randomly!
+        if(!isFound)
+        {
+          match= scoreArray[Math.floor(Math.random()*(friendData.length-1)+0)];
+        }
+
+         // If a table is available... tell user they are booked.
+         $("#displayName").text("NAME: "+ friendData[match].name);
+          $("#displayImg").attr("src", friendData[match].photo);
+
+          //$('#userMatch').html(data.matchName);
+          //$("#userMatchImage").attr("src", data.matchImage);
+
+          // Clear the form when submitting
+          $("#name").val("");
+          $("#photo").val("");
+          $("#myModal").modal("show");
 
 
-          // Then display the remaining fields in the HTML (Section Name, Date, URL)
-          //loop to add a unique id then append the new block
-          $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + friendData[i].name + friendData[i].photo + friendData[i].scores+"</h2>");
-        } */
+        
       });
     }
     
@@ -221,7 +245,7 @@
 
     $(".submit").on("click", function(event) {
       event.preventDefault();
-
+      //if()
      
       // Here we grab the form elements
       //BUILD NEW JSON CALLED newReservation
@@ -251,24 +275,12 @@
 
 
       //send post request, will not refresh the page just call ajax request
-      $.post("/api/tables", newFriend,
+      $.post("/api/data", newFriend,
         function(data) {
 
-          // If a table is available... tell user they are booked.
-          if (data) {
-            alert("Yay! There is a new friend for somebody!");
-          }
-
-          // If a table is available... tell user they on the waiting list.
-          else {
-            alert("You need to add anoter friend sorry!");
-          }
-
-          // Clear the form when submitting
-          $("#name").val("");
-          $("#photo").val("");
-    
-
+      console.log("ajax request: "+data);
+      getMatch();
+         
         });
 
     });
@@ -278,9 +290,9 @@
 
     // Run Queries!
     // ==========================================
-    runTableQuery();
+    //runTableQuery();
     //runWaitListQuery();
-
+   
 
 </script>
 
@@ -311,9 +323,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <h3>NAME:MARTINI</h3>
+        <h3 id="displayName"></h3>
         <br> 
-        <img src="http://i63.tinypic.com/orihsg.png">
+        <img id="displayImg">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -329,7 +341,9 @@
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </body>
 </html>
