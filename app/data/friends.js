@@ -1,4 +1,4 @@
-//place holder 
+//starting dummy values for friend api list
 var friendArray = [
 	{
 		"name":"Ahmed",
