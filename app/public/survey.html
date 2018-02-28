@@ -156,8 +156,42 @@
 
 <script type="text/javascript">
 
-	function myFunction()
-	{
+  $(".submit").on("click", function(event) {
+    event.preventDefault();
+    //did not have time to check user input
+    //if name and  photo is not empty and all num inputs are >0 then add the friend
+    //if(name!="" && photo!="" ^&& ("$.chosen-select".val()>0)
+   
+    //building the object for the API
+    var newFriend = {
+      friendName: $("#name").val().trim(),
+      friendPhoto: $("#photo").val().trim(),
+      scores: [
+          $("#q1").val(),
+          $("#q2").val(),
+          $("#q3").val(),
+          $("#q4").val(),
+          $("#q5").val(),
+          $("#q6").val(),
+          $("#q7").val(),
+          $("#q8").val(),
+          $("#q9").val(),
+          $("#q10").val()
+        ]
+    };
+
+    //send post request, will not refresh the page just call ajax request
+    //to add the friend
+    $.post("/api/data", newFriend,
+      function(data) 
+      {
+      //call getMatch to find your bestFriend!
+      getMatch();  
+      });
+  });
+
+  function myFunction()
+  {
         $('#myModal').modal('show'); 
   }
   
@@ -213,7 +247,7 @@
       {
         match=0;
       }
-      //once done calculatin the match go ahead and display the new friend to the user
+      //once done calculation the match go ahead and display the new friend to the user
        $("#displayName").text("NAME: "+ friendData[match].name);
         $("#displayImg").attr("src", friendData[match].photo);
 
@@ -225,75 +259,13 @@
     });
   }
 
-    $(".submit").on("click", function(event) {
-      event.preventDefault();
-      //if()
-     
-      // Here we grab the form elements
-      //BUILD NEW JSON CALLED newReservation
-      var newFriend = {
-        friendName: $("#name").val().trim(),
-        friendPhoto: $("#photo").val().trim(),
-        scores: [
-            $("#q1").val(),
-            $("#q2").val(),
-            $("#q3").val(),
-            $("#q4").val(),
-            $("#q5").val(),
-            $("#q6").val(),
-            $("#q7").val(),
-            $("#q8").val(),
-            $("#q9").val(),
-            $("#q10").val()
-          ]
-      };
-      //verify
-      console.log(newFriend);
-
-      // This line is the magic. It"s very similar to the standard ajax function we used.
-      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-      // depending on if a tables is available or not.
-
-
-      //send post request, will not refresh the page just call ajax request
-      $.post("/api/data", newFriend,
-        function(data) {
-
-      console.log("ajax request: "+data);
-      getMatch();
-         
-        });
-
-    });
-
-    
-    //as soon as page loads then gets the javascript
-
-    // Run Queries!
-    // ==========================================
-    //runTableQuery();
-    //runWaitListQuery();
-   
-
 </script>
-
-    <!-- Submit Button -->
-    <!--<div class="submit">
-    <button type="submit" class="Btn" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
-     Submit</button>
-     </div>-->
     </div>
 </div>
    
   	  <p><a href="/api/data"><div class="Btn footerButton">API Friend List</div></a>  <a href="https://github.com/afhaque/HotRestaurant"><div class="Btn footerButton">GITHUB Repo</div></a></p> <div id="copyright">Vivian Tuong Nguyen &copy; 2018. All Rights Reserved.</div>
 </div>
 	
-	<!-- Button trigger modal -->
-
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -316,11 +288,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
