@@ -181,8 +181,6 @@
       $.ajax({ url: currentURL + "/api/data", method: "GET" })
       .then(function(friendData) 
       {
-       
-
         // Here we are logging the URL so we have access to it for troubleshooting
         console.log("------------------------------------");
         console.log("URL: " + currentURL + "/api/tables");
@@ -198,6 +196,7 @@
             total+=parseInt(friendData[x].scores[y]);
           }
           scoreArray.push(total);
+          total=0
         }
         // Here we then log the NYTData to console, where it will show up as an object.
         console.log("Total scores in Arr: "+scoreArray);
@@ -218,12 +217,14 @@
         //if not found pick someone randomly!
         if(!isFound)
         {
-          match= scoreArray[Math.floor(Math.random()*(friendData.length-1)+0)];
+          match= scoreArray[Math.floor(Math.random()*(friendData.length)+0)];
+          console.log("check index: "+ match);
         }
-
+        console.log("check index: "+ match);
+        console.log("check index: "+ friendData);
          // If a table is available... tell user they are booked.
-         $("#displayName").text("NAME: "+ friendData[match].name);
-          $("#displayImg").attr("src", friendData[match].photo);
+         $("#displayName").text("NAME: "+ friendData[1].name);
+          $("#displayImg").attr("src", friendData[1].photo);
 
           //$('#userMatch').html(data.matchName);
           //$("#userMatchImage").attr("src", data.matchImage);

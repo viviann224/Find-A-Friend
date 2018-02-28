@@ -1,5 +1,4 @@
-
-	/*added animated bg*/
+/*added animated bg*/
 body 
 {
 	width: 100wh;
@@ -16,41 +15,42 @@ body
 @-webkit-keyframes Gradient 
 {
 	0% {
-		background-position: 0% 50%
+			background-position: 0% 50%
 		}
 	50% {
-		background-position: 100% 50%
+			background-position: 100% 50%
 		}
 	100% {
-		background-position: 0% 50%
+			background-position: 0% 50%
 		}
 }
 
 @-moz-keyframes Gradient 
 {
 	0% {
-		background-position: 0% 50%
+			background-position: 0% 50%
 		}
 	50% {
-		background-position: 100% 50%
+			background-position: 100% 50%
 		}
 	100% {
-		background-position: 0% 50%
+			background-position: 0% 50%
 		}
 }
 
 @keyframes Gradient 
 {
 	0% {
-		background-position: 0% 50%
+			background-position: 0% 50%
 		}
 	50% {
-		background-position: 100% 50%
+			background-position: 100% 50%
 		}
 	100% {
-		background-position: 0% 50%
+			background-position: 0% 50%
 		}
 }
+
 a, .Btn
 { 
    color:white; 
@@ -62,8 +62,10 @@ a, .Btn
 } 
 
 a:hover
-{color:orange;
-text-decoration: none;}
+{
+	color:orange;
+	text-decoration: none;
+}
 h2
 {
 	font-family: 'Merriweather', serif;
@@ -167,6 +169,15 @@ strong
 .glyphicon-plus, .glyphicon-user
 {
 	color:#39baa8;
+}
+
+.modal-body
+{
+	text-align: center;
+}
+#displayImg
+{
+	width:50%;
 }
 
 
