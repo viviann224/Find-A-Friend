@@ -247,6 +247,12 @@ option
 	font-size: 16px;
 }
 
+.imglogo
+{
+	max-width: 50px;
+	max-height:50px;
+}
+
 .footerButton
 {
 	padding:0px;
