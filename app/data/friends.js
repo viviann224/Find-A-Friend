@@ -18,19 +18,19 @@ var friendArray = [
 
 	},
 	{
-		
+
 		"name":"Martini",
   		"photo":"http://i63.tinypic.com/orihsg.png",
 		"scores":[
-		      2,
 		      1,
-		      4,
-		      4,
-		      3,
 		      1,
-		      5,
-		      5,
-		      2,
+		      1,
+		      1,
+		      1,
+		      1,
+		      1,
+		      1,
+		      1,
 		      1
 		    ]
 
@@ -55,4 +55,3 @@ var friendArray = [
 ];
 
 module.exports = friendArray;
-

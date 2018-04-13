@@ -156,16 +156,18 @@
 
 <script type="text/javascript">
 
-  $(".submit").on("click", function(event) {
+  $(".submit").on("click", function(event)
+	{
     event.preventDefault();
     //did not have time to check user input
     //if name and  photo is not empty and all num inputs are >0 then add the friend
     //if(name!="" && photo!="" ^&& ("$.chosen-select".val()>0)
-   
+
     //building the object for the API
-    var newFriend = {
-      friendName: $("#name").val().trim(),
-      friendPhoto: $("#photo").val().trim(),
+    var newFriend =
+		{
+      name: $("#name").val().trim(),
+      photo: $("#photo").val().trim(),
       scores: [
           $("#q1").val(),
           $("#q2").val(),
@@ -182,21 +184,28 @@
 
     //send post request, will not refresh the page just call ajax request
     //to add the friend
-    $.post("/api/data", newFriend,
-      function(data) 
+    $.post("/api/data", newFriend, function(data)
       {
+				console.log("POSTING: "+ data.name);
+				$("#displayName").text("NAME: "+ data.name);
+				 $("#displayImg").attr("src", data.photo);
       //call getMatch to find your bestFriend!
-      getMatch();  
+      //getMatch(data);
+			//once done go ahead and clear out the values for the user
+			$("#name").val("");
+			$("#photo").val("");
+			//then display the pop up
+			$("#myModal").modal("show");
       });
   });
 
   function myFunction()
   {
-        $('#myModal').modal('show'); 
+        $('#myModal').modal('show');
   }
-  
+
   //getMatch is the function where it calls the ajax to get the data to read the score for each friend and returns a match
-  function getMatch() 
+  function getMatch(data)
   {
 
     //start off with the location of the root
@@ -206,66 +215,71 @@
     //call ajax and pass in the url +api data page and get all
     //the data to read
     $.ajax({ url: currentURL + "/api/data", method: "GET" })
-    .then(function(friendData) 
+    .then(function(friendData)
     {
-      //get a blank array to store each total score of each friend
-      var scoreArray=[];
-      //set the total to 0 first
-      var total=0;
-      //go through the loop and add each total score in the array
-      for(var x=0; x< friendData.length;x++)
-      { //nexted for loop to create a sum score for each friend in the array
-        for (var y=0; y<10;y++)
-        {
-          total+=parseInt(friendData[x].scores[y]);
-        }
-        //after getting a total push the total to the array
-        scoreArray.push(total);
-        //reset the total to zero on the next array
-        total=0
-      }
-      //still debugging
-      //have a match which is the index of the found
-      //if found, set match to the index else find another
-      //value for match
-      var match= Math.floor(Math.random()*(2)+0);
-      //is bool to check
-      var isFound=false;
-      for (var x=0;x<friendData.length&&!isFound;x++)
-      {
-        if(scoreArray[x]==this.match)
-        {
-          
-          this.match=parseInt(scoreArray[x]);
-          isFound=true;
+			//once done calculation the match go ahead and display the new friend to the user
+       // $("#displayName").text("NAME: "+ friendData.name);
+       //  $("#displayImg").attr("src", friendData.photo);
 
-        }
+      // //get a blank array to store each total score of each friend
+      // var scoreArray=[];
+      // //set the total to 0 first
+      // var total=0;
+      // //go through the loop and add each total score in the array
+      // for(var x=0; x< friendData.length;x++)
+      // { //nexted for loop to create a sum score for each friend in the array
+      //   for (var y=0; y<10;y++)
+      //   {
+      //     total+=parseInt(friendData[x].scores[y]);
+      //   }
+      //   //after getting a total push the total to the array
+      //   scoreArray.push(total);
+      //   //reset the total to zero on the next array
+      //   total=0
+      // }
+      // //still debugging
+      // //have a match which is the index of the found
+      // //if found, set match to the index else find another
+      // //value for match
+      // var match= Math.floor(Math.random()*(2)+0);
+      // //is bool to check
+      // var isFound=false;
+      // for (var x=0;x<friendData.length&&!isFound;x++)
+      // {
+      //   if(scoreArray[x]==this.match)
+      //   {
+			//
+      //     this.match=parseInt(scoreArray[x]);
+      //     isFound=true;
+			//
+      //   }
+			//
+      // }
+      // //if not found pick someone randomly!
+      // if(!isFound)
+      // {
+      //   match=0;
+      // }
+      // //once done calculation the match go ahead and display the new friend to the user
+      //  $("#displayName").text("NAME: "+ friendData[match].name);
+      //   $("#displayImg").attr("src", friendData[match].photo);
 
-      }
-      //if not found pick someone randomly!
-      if(!isFound)
-      {
-        match=0;
-      }
-      //once done calculation the match go ahead and display the new friend to the user
-       $("#displayName").text("NAME: "+ friendData[match].name);
-        $("#displayImg").attr("src", friendData[match].photo);
-
-        //once done go ahead and clear out the values for the user 
-        $("#name").val("");
-        $("#photo").val("");
-        //then display the pop up
-        $("#myModal").modal("show");
+        //once done go ahead and clear out the values for the user
+        // $("#name").val("");
+        // $("#photo").val("");
+        // //then display the pop up
+        // $("#myModal").modal("show");
     });
   }
 
 </script>
     </div>
 </div>
-   
-  	  <p><a href="/api/data"><div class="Btn footerButton">API Friend List</div></a>  <a href="https://github.com/viviann224/FriendFinder"><div class="Btn footerButton">GITHUB Repo</div></a></p> <div id="copyright"><img src="/img/logo.png" class="imglogo"> Vivian Tuong Nguyen &copy; 2018. All Rights Reserved.</div>
+
+  	  <p><a href="/api/data"><div class="Btn footerButton">API Friend List</div></a>  <a href="https://github.com/viviann224/FriendFinder"><div class="Btn footerButton">GITHUB Repo</div></a></p> <div id="copyright">
+        <a href="https://viviann224.github.io/" target="_blank"><img src="/img/logo.png" class="imglogo"></a> <a href="https://viviann224.github.io/" target="_blank">Vivian Tuong Nguyen</a> &copy; 2018. All Rights Reserved.</div>
 </div>
-	
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -278,12 +292,12 @@
       </div>
       <div class="modal-body">
         <h3 id="displayName"></h3>
-        <br> 
+        <br>
         <img id="displayImg">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
+
       </div>
     </div>
   </div>
