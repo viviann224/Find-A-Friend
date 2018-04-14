@@ -1,13 +1,13 @@
-# Find-A-Friend
+# Social Austin
 **GETTING STARTED**:
 The program should run automatically.
 
 If the program is not running automatically, please make sure you have all the prerequisites listed below.
 
 **STATEMENT OF PURPOSE**:
-Find-A-Friend application is a friend compatibility-based  application. Find-A-Friend is full-stack site which takes in the user's name, picture, a series of personality questions and displays a friend based on previous users on the application.
+Social Austin application is a friend compatibility-based  application. Social Austin is full-stack site which takes in the user's name, picture, a series of personality questions and displays a friend based on previous users on the application.
 
-Find-A-Friend was created to showcases the use of server routing from express, and path npm and creating an API from body-parser via converting to JSON form and preforming call AJAX requests.  Find-A-Friend is the first web application to pull a polished user interface, and server side together, deloying from Heroku to provide a new friend suggestion for the user.
+Social Austin was created to showcases the use of server routing from express, and path npm and creating an API from body-parser via converting to JSON form and preforming call AJAX requests.  Social Austin is the first web application to pull a polished user interface, and server side together, deloying from Heroku to provide a new friend suggestion for the user.
 
 **PREREQUISITES**:
 - Google Chrome Internet Browser
@@ -33,7 +33,7 @@ Once pages loads, the user is able to input a name and a user image url. The use
 - Glyphiconsglyphicons-371-globe-af.png
 
 **VERSION**:
-This is the first version of FIND-A-FRIEND
+This is the first version of Social Austin
 
 **LICENSE**:
 This project is licensed under GitHub.
