@@ -1,8 +1,8 @@
 //starting dummy values for friend api list
 var friendArray = [
 	{
-		"name":"Ahmed",
-  		"photo":"https://pbs.twimg.com/profile_images/948294484596375552/RyGNqDEM_400x400.jpg",
+		"name":"Bob",
+  		"photo":"https://i.pinimg.com/originals/ab/fc/46/abfc46a8c8723befe97232d731ebf573.jpg",
 		"scores":[
 		      5,
 		      1,
