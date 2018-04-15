@@ -1,5 +1,4 @@
 /*added animated bg*/
-/*added animated bg*/
 body
 {
 	width: 100wh;
@@ -51,11 +50,8 @@ body
 		}
 }
 
-
-
 a, .Btn,  a:active
 {
-
    color:white;
    -webkit-transition:color 0.5s ease-in;
    -moz-transition:color 0.5s ease-in;
@@ -73,14 +69,12 @@ a:hover,
 {
 	background-color: gray;
 	text-decoration: none !important;
-
 }
 
 #banner
 {
 	width:100%;
 	display: block;
-	/*border-radius: 5px;*/
 	margin:auto;
 	text-align: center;
 	position: -webkit-sticky; /* Safari */
@@ -91,12 +85,14 @@ a:hover,
   border-bottom-width: 3px;
 	box-shadow: 0px 2px 4px #000000;
 }
+
 h2
 {
 	font-family: 'Merriweather', serif;
 	font-size:30px;
 	color:#5e6a68;
 }
+
 h3
 {
 	font-family: 'Merriweather', serif;
@@ -123,23 +119,23 @@ h4
 	text-align: center;
 	padding:4px;
 	border: 2px solid white; /*rounded border*/
-    border-radius: 5px;		/*thickness or rounded border*/
+  border-radius: 5px;		/*thickness or rounded border*/
 	background-color: gray;
 	color:white;
 	width:100px;
 	opacity: 0.6;
-    filter: alpha(opacity=60); /* For IE8 and earlier */
-    margin:5px;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+  margin:5px;
 }
 
 .Btn:hover
 {
 	opacity: .8;
-    filter: alpha(opacity=80); /* For IE8 and earlier */
-    background-color: white;
-    border: 2px solid gray; /*rounded border*/
-    border-radius: 5px;		/*thickness or rounded border*/
-    color:gray;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+  background-color: white;
+  border: 2px solid gray; /*rounded border*/
+  border-radius: 5px;		/*thickness or rounded border*/
+  color:gray;
 }
 
 .container
@@ -147,6 +143,7 @@ h4
 	margin:0px auto;
 	padding:0px;
 }
+
 .jumbotron
 {
 	width:95%;
@@ -157,12 +154,11 @@ h4
 	margin: 0 auto;
 	margin-top: 160px;
 	opacity: 0.9;
-    filter: alpha(opacity=90); /* For IE8 and earlier */
+  filter: alpha(opacity=90); /* For IE8 and earlier */
 }
+
 h1
-{
-	text-shadow: 0 0 3px #7e8584;
-}
+{	text-shadow: 0 0 3px #7e8584;}
 
 hr
 {
@@ -176,8 +172,6 @@ hr
 	width:80%;
 	size:8px;
 }
-
-
 
 strong
 {
@@ -197,21 +191,16 @@ strong
 }
 
 .glyphicon-plus, .glyphicon-user
-{
-	color:#39baa8;
-}
+{	color:#39baa8;}
 
 .modal-body
-{
-	text-align: center;
-}
+{	text-align: center;}
 
 #displayImg
-{
-	width:50%;
-}
+{	width:50%;}
 
-.footer {
+.footer
+{
     position: fixed;
     left: 0;
     bottom: 0;
@@ -234,7 +223,6 @@ input
 	font-size: 12px;
 	padding:2px;
 	margin:0px;
-	background-color: yellow;
 }
 
 .chosen-select, .form-control
@@ -250,8 +238,6 @@ input
 	overflow: visible;
 }
 
-
-
 option
 {
 	font-size: 12px;
@@ -259,9 +245,7 @@ option
 }
 
 .modal
-{
-	color:black;
-}
+{	color:black;}
 
 #submit /*submit button*/
 {

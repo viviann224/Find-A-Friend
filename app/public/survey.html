@@ -11,32 +11,28 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
+<!-- sticky header -->
 <img src="img/bg.png" id="banner">
 <div class="container">
-
-
 			<div class="jumbotron">
-
 				<hr>
-
 				<br>
 				<h2 class="text-center jumboh2"><span>"</span>Welcome to <strong>Social Austin</strong>. Answer a few question to find friends in Austin<span>"</span></h2>
 				<br>
-
-
 		<div class="Btn startBtn"><a href="/home">LETS GO HOME</div></a>
-<div class="container" id="surveyForm">
+		<div class="container" id="surveyForm">
 		<h2>Survey Questions</h2>
     <hr>
+
     <h3>About You</h3>
-   <h4>Name (<strong>Required</strong>)</h4>
+   	<h4>Name (<strong>Required</strong>)</h4>
     <input type="text" id="name" class="form-control" required>
-   <h4>Link to Photo Image (<strong>Required</strong>)</h4>
+   	<h4>Link to Photo Image (<strong>Required</strong>)</h4>
     <input type="text" id="photo" class="form-control" required>
     <hr>
 
     <h3>Question 1</h3>
-    <h4>Do you find yourself feeling lonely?</h4>
+    <h4>Do you perfer Austin coffee shops over chain coffee shops (<i>i.e. Starbucks</i>)?</h4>
     <select class="chosen-select" id="q1">
       <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -47,7 +43,7 @@
     </select>
 
     <h3>Question 2</h3>
-    <h4>Your creativity is sparked by others?</h4>
+    <h4>Your creativity is sparked by networking at informal meetups such as Rainey Street?</h4>
     <select class="chosen-select" id="q2">
       <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -58,7 +54,7 @@
     </select>
 
     <h3>Question 3</h3>
-    <h4>Are you always stressed?</h4>
+    <h4>Are you always stressed or find yourself with anxiety if you are not venturing Austin?</h4>
     <select class="chosen-select" id="q3">
       <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -68,9 +64,8 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-
     <h3>Question 4</h3>
-    <h4>Do you like being in a group setting?</h4>
+    <h4>Do you like reading books at Mozarts or Lake Travis?</h4>
     <select class="chosen-select" id="q4">
       <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -79,7 +74,6 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
-
 
     <h3>Question 5</h3>
     <h4>Are you happier when you are around people?</h4>
@@ -92,9 +86,8 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-
     <h3>Question 6</h3>
-    <h4>Do you enjoy family dinners?</h4>
+    <h4>Do you enjoy farm to table meals at Barley Swine or any top rated Austin restaurants?</h4>
     <select class="chosen-select" id="q6">
       <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -104,9 +97,8 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-
     <h3>Question 7</h3>
-    <h4>Do you enjoy vacationing solo?</h4>
+    <h4>Do you enjoy vacationing solo than ziplining around Austin?</h4>
     <select class="chosen-select" id="q7">
       <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -128,7 +120,7 @@
     </select>
 
     <h3><Question 9</h3>
-    <h4>When you are around more people do you tend to get more ompetitive?</h4>
+    <h4>When you are around more people do you tend to get more competitive (<i>i.e. working out on Townlake</i>)?</h4>
     <select class="chosen-select" id="q9">
       <option value="">Pick an option</option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -157,17 +149,38 @@
      </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
 <script type="text/javascript">
-
+	//once user clicks submit, check if user filled in all inputs and respond with a new friend match
   $(".submit").on("click", function(event)
 	{
     event.preventDefault();
-    //did not have time to check user input
-    //if name and  photo is not empty and all num inputs are >0 then add the friend
-    //if(name!="" && photo!="" ^&& ("$.chosen-select".val()>0)
+    //validateForm is a function where it checks for all fields and restaurants
+		//true if all inputs are not empty
+		//false if there is an empty field
+    function validateForm()
+		{
+      var isValid = true;
+			//checks the name and photo field
+      $(".form-control").each(function()
+			{
+        if ($(this).val() === "") {
+          isValid = false;
+        }
+      });
+			//checks the question fields
+      $(".chosen-select").each(function()
+			{
+        if ($(this).val() === "") {
+          isValid = false;
+        }
+      });
+      return isValid;
+    }
 
-    //building the object for the API
+	//if all fields entered
+	if (validateForm())
+	{
+    //create a newFriend object for the API
     var newFriend =
 		{
       name: $("#name").val().trim(),
@@ -185,97 +198,25 @@
           $("#q10").val()
         ]
     };
-
-    //send post request, will not refresh the page just call ajax request
-    //to add the friend
+		//sends a post request to compare the newFriend object with the current friend List
+		//to determine the most compatiable friend
     $.post("/api/data", newFriend, function(data)
-      {
-				console.log("POSTING: "+ data.name);
+      {//display compatible friend name and photo
 				$("#displayName").text("NAME: "+ data.name);
-				 $("#displayImg").attr("src", data.photo);
-      //call getMatch to find your bestFriend!
-      //getMatch(data);
-			//once done go ahead and clear out the values for the user
-			$("#name").val("");
-			$("#photo").val("");
-			//then display the pop up
-			$("#myModal").modal("show");
+				$("#displayImg").attr("src", data.photo);
+				//once done go ahead and clear out the values for the user
+				$("#name").val("");
+				$("#photo").val("");
+				//then display the new friend via modal
+				$("#myModal").modal("show");
       });
+			}
+		else
+		{//user did not fill out all the fields, go ahead and tell user
+			//to complete form before submitting
+			alert("Please answer all questions before submitting!");
+		}
   });
-
-  function myFunction()
-  {
-        $('#myModal').modal('show');
-  }
-
-  //getMatch is the function where it calls the ajax to get the data to read the score for each friend and returns a match
-  function getMatch(data)
-  {
-
-    //start off with the location of the root
-    var currentURL = window.location.origin;
-
-    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    //call ajax and pass in the url +api data page and get all
-    //the data to read
-    $.ajax({ url: currentURL + "/api/data", method: "GET" })
-    .then(function(friendData)
-    {
-			//once done calculation the match go ahead and display the new friend to the user
-       // $("#displayName").text("NAME: "+ friendData.name);
-       //  $("#displayImg").attr("src", friendData.photo);
-
-      // //get a blank array to store each total score of each friend
-      // var scoreArray=[];
-      // //set the total to 0 first
-      // var total=0;
-      // //go through the loop and add each total score in the array
-      // for(var x=0; x< friendData.length;x++)
-      // { //nexted for loop to create a sum score for each friend in the array
-      //   for (var y=0; y<10;y++)
-      //   {
-      //     total+=parseInt(friendData[x].scores[y]);
-      //   }
-      //   //after getting a total push the total to the array
-      //   scoreArray.push(total);
-      //   //reset the total to zero on the next array
-      //   total=0
-      // }
-      // //still debugging
-      // //have a match which is the index of the found
-      // //if found, set match to the index else find another
-      // //value for match
-      // var match= Math.floor(Math.random()*(2)+0);
-      // //is bool to check
-      // var isFound=false;
-      // for (var x=0;x<friendData.length&&!isFound;x++)
-      // {
-      //   if(scoreArray[x]==this.match)
-      //   {
-			//
-      //     this.match=parseInt(scoreArray[x]);
-      //     isFound=true;
-			//
-      //   }
-			//
-      // }
-      // //if not found pick someone randomly!
-      // if(!isFound)
-      // {
-      //   match=0;
-      // }
-      // //once done calculation the match go ahead and display the new friend to the user
-      //  $("#displayName").text("NAME: "+ friendData[match].name);
-      //   $("#displayImg").attr("src", friendData[match].photo);
-
-        //once done go ahead and clear out the values for the user
-        // $("#name").val("");
-        // $("#photo").val("");
-        // //then display the pop up
-        // $("#myModal").modal("show");
-    });
-  }
-
 </script>
     </div>
 </div>
